@@ -19,26 +19,26 @@
                 renderScale: 1.0,
                 startButton: true,
                 worklets: {
-                    audio_worklet: "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/game.audio.worklet.js",
-                    audio_position_worklet: "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/game.audio.position.worklet.js"
+                    audio_worklet: "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/game.audio.worklet.js",
+                    audio_position_worklet: "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/game.audio.position.worklet.js"
                 },
                 scripts: [
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_audio_position_worklet_0.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_audio_worklet_0.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_wasm_0.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_wasm_1.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_0.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_1.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_2.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_3.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_4.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_5.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_6.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_7.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_8.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_9.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_pck_10.js",
-                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@7fb549e69be4c16abf91f228cd74fbe7433016c3/far-lands/g2ka_engine_0.js"
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_audio_position_worklet_0.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_audio_worklet_0.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_wasm_0.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_wasm_1.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_0.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_1.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_2.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_3.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_4.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_5.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_6.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_7.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_8.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_9.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_pck_10.js",
+                    "https://cdn.jsdelivr.net/gh/SwankyMan88/Random-files@d551015c89ee812fc459bad4d7767b362d85e857/far-lands/g2ka_engine_0.js"
                 ],
                 assets: {
                     audio_position_worklet: {
@@ -66,7 +66,7 @@
                         filename: "Far Lands.pck",
                         virtualName: "game.pck",
                         chunks: 11,
-                        rawSize: 54243112,
+                        rawSize: 54249160,
                         contentType: "application/octet-stream"
                     },
                     engine: {
@@ -79,10 +79,10 @@
                 },
                 fileSizes: {
                     "game.wasm": 37685705,
-                    "game.pck": 54243112
+                    "game.pck": 54249160
                 },
-                totalRawBytes: 92254847,
-                totalWireBytes: 80390956
+                totalRawBytes: 92260895,
+                totalWireBytes: 80398648
             };
 
             // Must run before any getElementById below: if a live-editor re-run
