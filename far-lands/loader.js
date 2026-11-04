@@ -120,16 +120,30 @@
                 }
             }
 
-            function g2kaLoadScript(url) {
+            // jsDelivr can briefly answer 403 the first time it pulls a new file from
+            // GitHub, so a failed chunk is retried a few times, alternating mirrors.
+            function g2kaLoadScript(url, attempt) {
+                attempt = attempt || 0;
+                var src = url;
+                if (attempt > 0) {
+                    src = (attempt % 2 ? url.replace("://cdn.jsdelivr.net/", "://fastly.jsdelivr.net/") : url) + "?retry=" + attempt;
+                }
                 return new Promise(function (resolve, reject) {
                     var el = document.createElement("script");
-                    el.src = url;
+                    el.src = src;
                     el.async = false;
                     el.onload = function () {
                         resolve();
                     };
                     el.onerror = function () {
-                        reject(new Error("failed to load " + url));
+                        el.remove();
+                        if (attempt >= 4) {
+                            reject(new Error("failed to load " + url));
+                            return;
+                        }
+                        setTimeout(function () {
+                            g2kaLoadScript(url, attempt + 1).then(resolve, reject);
+                        }, 800 * (attempt + 1));
                     };
                     document.head.appendChild(el);
                 });
