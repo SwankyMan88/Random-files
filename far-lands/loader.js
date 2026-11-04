@@ -2,6 +2,7 @@
 // boot code. Generated from godot2ka's program.html so the KA program stays tiny.
 (function () {
     "use strict";
+    window.__g2kaSelf = (document.currentScript || {}).src;
     var style = document.createElement("style");
     style.textContent = "\n            html, body {\n                margin: 0;\n                padding: 0;\n                background: rgb(26, 26, 30);\n                overflow: hidden;\n            }\n\n            body {\n                font: 15px/1.5 system-ui, sans-serif;\n                color: rgb(216, 216, 220);\n            }\n\n            #g2ka-boot {\n                position: absolute;\n                inset: 0;\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                justify-content: center;\n                gap: 14px;\n                text-align: center;\n                padding: 24px;\n            }\n\n            #g2ka-boot h1 {\n                margin: 0;\n                font-size: 19px;\n                font-weight: 600;\n            }\n\n            #g2ka-status {\n                color: rgb(154, 154, 162);\n                font-size: 13px;\n                min-height: 1.5em;\n            }\n\n            #g2ka-track {\n                width: min(420px, 80vw);\n                height: 6px;\n                background: rgb(48, 48, 56);\n                border-radius: 3px;\n                overflow: hidden;\n            }\n\n            #g2ka-fill {\n                width: 0;\n                height: 100%;\n                background: rgb(90, 169, 230);\n                transition: width 0.15s;\n            }\n\n            #g2ka-error {\n                max-width: 560px;\n                text-align: left;\n                color: rgb(255, 155, 155);\n                font-family: ui-monospace, monospace;\n                font-size: 12px;\n                white-space: pre-wrap;\n            }\n\n            #g2ka-canvas {\n                display: block;\n                margin: 0;\n                border: 0;\n                outline: none;\n                /* Without these, mobile browsers fight the game for touch\n                   gestures: the page scrolls/zooms on drag, taps flash blue,\n                   and long-presses pop up a selection or context menu. */\n                touch-action: none;\n                -webkit-user-select: none;\n                user-select: none;\n                -webkit-touch-callout: none;\n                -webkit-tap-highlight-color: transparent;\n            }\n\n            #g2ka-canvas:focus {\n                outline: none;\n            }\n\n            #g2ka-start {\n                appearance: none;\n                background: rgb(90, 169, 230);\n                border: 0;\n                border-radius: 6px;\n                color: rgb(16, 16, 20);\n                cursor: pointer;\n                font: 600 15px/1 system-ui, sans-serif;\n                padding: 11px 26px;\n            }\n\n            #g2ka-start:hover {\n                background: rgb(120, 187, 238);\n            }\n\n            #g2ka-start:focus-visible {\n                outline: 2px solid rgb(216, 216, 220);\n                outline-offset: 2px;\n            }\n\n            /* Secondary style: must not compete with the primary \"Start game\"\n               button that appears below it once loading finishes. */\n            #g2ka-fullscreen {\n                appearance: none;\n                background: transparent;\n                border: 1px solid rgb(58, 58, 68);\n                border-radius: 6px;\n                color: rgb(216, 216, 220);\n                cursor: pointer;\n                font: 600 13px/1 system-ui, sans-serif;\n                padding: 8px 18px;\n            }\n\n            #g2ka-fullscreen:hover {\n                background: rgba(90, 169, 230, 0.14);\n                border-color: rgb(90, 169, 230);\n            }\n\n            #g2ka-fullscreen:focus-visible {\n                outline: 2px solid rgb(216, 216, 220);\n                outline-offset: 2px;\n            }\n\n            #g2ka-audio-hint {\n                position: fixed;\n                left: 50%;\n                bottom: 14px;\n                transform: translateX(-50%);\n                background: rgba(20, 20, 24, 0.85);\n                border: 1px solid rgb(58, 58, 68);\n                border-radius: 999px;\n                color: rgb(216, 216, 220);\n                font: 13px system-ui, sans-serif;\n                padding: 7px 14px;\n                pointer-events: none;\n                z-index: 10;\n            }\n        ";
     document.head.appendChild(style);
@@ -600,6 +601,9 @@
                         button.disabled = true;
                         button.remove();
                         g2kaResumeAudio();
+                        if (window.g2kaPopped) {
+                            g2kaEnterFullscreen();
+                        }
                         resolve();
                     });
 
@@ -787,12 +791,64 @@
             //     allow="fullscreen". Read document.fullscreenEnabled at
             //     runtime to find out whether it does.
             // ---------------------------------------------------------------
-            function g2kaOnFullscreenClick() {
+            function g2kaEnterFullscreen() {
                 var el = document.documentElement;
                 var go = el.requestFullscreen || el.webkitRequestFullscreen;
                 if (go) {
-                    go.call(el);
+                    try {
+                        var p = go.call(el);
+                        if (p && p.catch) {
+                            p.catch(function () {});
+                        }
+                    } catch (e) {
+                        // refused: the game still runs windowed
+                    }
                 }
+            }
+
+            function g2kaOnFullscreenClick() {
+                // Pine Valley's method. Khan Academy's frame refuses fullscreen, and
+                // asking first would use up the click, so inside a frame the game
+                // opens in its own tab straight away; that tab can go fullscreen.
+                if (window.top === window) {
+                    g2kaEnterFullscreen();
+                    return;
+                }
+                var w = null;
+                try {
+                    w = window.open("", "_blank");
+                } catch (e) {
+                    w = null;
+                }
+                if (!w) {
+                    g2kaSay("Couldn't open a new tab (popups blocked). Allow popups, or press F11.");
+                    return;
+                }
+                var tag = "scr" + "ipt";
+                var html = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>" + document.title + "</title>" +
+                    "<style>html, body { margin: 0; background: rgb(26, 26, 30); overflow: hidden; }</style>" +
+                    "<" + tag + ">window.g2kaPopped = true;</" + tag + "></head><body>" +
+                    "<" + tag + " src=\"" + window.__g2kaSelf + "\"></" + tag + "></body></html>";
+                try {
+                    w.document.open();
+                    w.document.write(html);
+                    w.document.close();
+                } catch (e) {
+                    w.close();
+                    g2kaSay("Couldn't open the fullscreen tab here. Press F11 instead.");
+                    return;
+                }
+                // Two copies at once is too much: this one goes quiet until the tab closes.
+                var ctxs = (window.__g2kaAudio && window.__g2kaAudio.ctxs) || G2KA_AUDIO_CTXS;
+                ctxs.forEach(function (c) { try { c.suspend(); } catch (e) {} });
+                g2kaSay("Running in the new tab. Close it to come back here.");
+                var watch = setInterval(function () {
+                    if (!w.closed) {
+                        return;
+                    }
+                    clearInterval(watch);
+                    ctxs.forEach(function (c) { try { c.resume(); } catch (e) {} });
+                }, 500);
             }
 
             function g2kaWireFullscreenButton() {
