@@ -608,7 +608,6 @@
                     });
 
                     g2kaBoot.appendChild(button);
-                    button.focus();
                 });
             }
 
