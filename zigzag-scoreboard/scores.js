@@ -1,6 +1,6 @@
 var scoreboard = {
- "checked": 1794586501,
- "changed": 1794586501,
+ "checked": 1794591652,
+ "changed": 1794591652,
  "scores": [
   {
    "name": "wishsuper2",
@@ -67,10 +67,17 @@ var scoreboard = {
   },
   {
    "name": "🇸🇻BlueYoshi500🇨🇦",
-   "best": 259,
-   "bank": 256,
-   "games": 52,
+   "best": 284,
+   "bank": 453,
+   "games": 88,
    "posted": 1794527698
+  },
+  {
+   "name": "Butterflybutterflys",
+   "best": 278,
+   "bank": 23,
+   "games": 159,
+   "posted": 1794506720
   },
   {
    "name": "HACK",
@@ -113,13 +120,6 @@ var scoreboard = {
    "bank": 303,
    "games": 73,
    "posted": 1794420403
-  },
-  {
-   "name": "Butterflybutterflys",
-   "best": 161,
-   "bank": 11,
-   "games": 147,
-   "posted": 1794506720
   },
   {
    "name": "LittleMonkey612",
