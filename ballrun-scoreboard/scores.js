@@ -1,6 +1,6 @@
 var scoreboard = {
- "checked": 1794686648,
- "changed": 1794609188,
+ "checked": 1794686828,
+ "changed": 1794686828,
  "scores": [
   {
    "name": "₮₶Ξ ₿Γ∅₭∃₦ ΘΠ∉",
@@ -9,8 +9,8 @@ var scoreboard = {
   },
   {
    "name": "SWΛNKYᴍᴀɴ",
-   "best": 1018,
-   "posted": 1794591820
+   "best": 509,
+   "posted": 1794686793
   }
  ]
 };
