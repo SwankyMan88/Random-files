@@ -1,5 +1,5 @@
 var scoreboard = {
- "checked": 1794760808,
+ "checked": 1794762608,
  "changed": 1794701408,
  "scores": [
   {
