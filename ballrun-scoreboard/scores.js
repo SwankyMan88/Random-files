@@ -1,6 +1,6 @@
 var scoreboard = {
- "checked": 1794798608,
- "changed": 1794701408,
+ "checked": 1794799808,
+ "changed": 1794799808,
  "scores": [
   {
    "name": "breadghoti",
@@ -11,6 +11,11 @@ var scoreboard = {
    "name": "₮₶Ξ ₿Γ∅₭∃₦ ΘΠ∉",
    "best": 1598,
    "posted": 1794609133
+  },
+  {
+   "name": "HeavyWeaponsGuy",
+   "best": 1248,
+   "posted": 1794799785
   },
   {
    "name": "LittleMonkey612",
