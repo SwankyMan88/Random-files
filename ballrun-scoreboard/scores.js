@@ -1,11 +1,16 @@
 var scoreboard = {
- "checked": 1794877208,
- "changed": 1794799808,
+ "checked": 1794878108,
+ "changed": 1794878108,
  "scores": [
   {
    "name": "breadghoti",
    "best": 2720,
    "posted": 1794701381
+  },
+  {
+   "name": "MuhammadJaih",
+   "best": 2097,
+   "posted": 1794878071
   },
   {
    "name": "₮₶Ξ ₿Γ∅₭∃₦ ΘΠ∉",
